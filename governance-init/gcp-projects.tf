@@ -4,7 +4,7 @@ module "project-factory" {
   for_each             = local.project_env
   name                 = "gke-project-${each.key}"
   random_project_id    = false
-  org_id               = "1234567890"
+  org_id               = data.google_secret_manager_secret.org_id.secret_id
   usage_bucket_name    = "gke-project-${each.key}-usage-report-bucket"
   usage_bucket_prefix  = "gke-project/${each.key}/1/integration"
   billing_account      = data.google_secret_manager_secret.billing.secret_id
