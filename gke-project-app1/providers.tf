@@ -10,4 +10,12 @@ terraform {
   }
 }
 
+data "terraform_remote_state" "networking" {
+  backend = "gcs"
+  config = {
+    bucket  = "tf-state-gov"
+    prefix  = "terraform/networking/state"
+  }
+}
+
 #Utilize GOOGLE_APPLICATION_CREDENTIALS env variable to authenticate local machine or pipeline host
