@@ -15,7 +15,7 @@ module "project-factory" {
 
 locals {
     project_env = {
-        dev = {
+        app1 = {
             api_list  = ["cloudapis.googleapis.com",
                         "cloudbuild.googleapis.com",
                         "cloudfunctions.googleapis.com",
@@ -28,7 +28,7 @@ locals {
                         ]
             
         },
-        test = {
+        app2 = {
             api_list  = ["cloudapis.googleapis.com",
                         "cloudbuild.googleapis.com",
                         "cloudfunctions.googleapis.com",
@@ -40,7 +40,7 @@ locals {
                         "storage-component.googleapis.com"  
                         ]
         }
-        prod = {
+        app3 = {
             api_list  = ["dns.googleapis.com",
                         "cloudapis.googleapis.com",
                         "cloudbuild.googleapis.com",
