@@ -7,7 +7,7 @@ module "project-factory" {
   org_id               = "1234567890"
   usage_bucket_name    = "gke-project-${each.key}-usage-report-bucket"
   usage_bucket_prefix  = "gke-project/${each.key}/1/integration"
-  billing_account      = "ABCDEF-ABCDEF-ABCDEF"
+  billing_account      = data.google_secret_manager_secret.billing.secret_id
   activate_apis        = each.value.api_list
 
 }
