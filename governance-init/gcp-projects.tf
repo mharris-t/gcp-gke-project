@@ -16,40 +16,41 @@ module "project-factory" {
 locals {
     project_env = {
         dev = {
-            availability_zones  = [1]
-            enable_auto_scaling = false
-            vnet_adress_space   = "10.0.0.0/8"
-            k8s_subnet          = "10.1.0.0/16"
-            nodepool_min_count  = 1
-            nodepool_max_count  = 1
-            nodepool_disk_size  = 10
-            vm_size             = "Standard_DS1_v2"
-            admin_username      = data.azurerm_key_vault_secret.aks_admin_username.value
-            ssh_public_key      = data.azurerm_key_vault_secret.aks_ssh.value
+            api_list  = ["cloudapis.googleapis.com",
+                        "cloudbuild.googleapis.com",
+                        "cloudfunctions.googleapis.com",
+                        "container.googleapis.com",
+                        "containerregistry.googleapis.com",
+                        "iam.googleapis.com",
+                        "iap.googleapis.com",
+                        "servicenetworking.googleapis.com",
+                        "storage-component.googleapis.com"  
+                        ]
+            
         },
         test = {
-            availability_zones  = [1]
-            enable_auto_scaling = true
-            vnet_adress_space   = "10.0.0.0/8"
-            k8s_subnet          = "10.2.0.0/16"
-            nodepool_min_count  = 1
-            nodepool_max_count  = 2
-            nodepool_disk_size  = 30
-            vm_size             = "Standard_DS2_v2"
-            admin_username      = data.azurerm_key_vault_secret.aks_admin_username.value
-            ssh_public_key      = data.azurerm_key_vault_secret.aks_ssh.value
+            api_list  = ["cloudapis.googleapis.com",
+                        "cloudbuild.googleapis.com",
+                        "cloudfunctions.googleapis.com",
+                        "container.googleapis.com",
+                        "containerregistry.googleapis.com",
+                        "iam.googleapis.com",
+                        "iap.googleapis.com",
+                        "servicenetworking.googleapis.com",
+                        "storage-component.googleapis.com"  
+                        ]
         }
-        staging = {
-            availability_zones  = [1,2,3]
-            enable_auto_scaling = true
-            vnet_adress_space   = "10.0.0.0/8"
-            k8s_subnet          = "10.3.0.0/16"
-            nodepool_min_count  = 1
-            nodepool_max_count  = 4
-            nodepool_disk_size  = 100
-            vm_size             = "Standard_DS3_v2"
-            admin_username      = data.azurerm_key_vault_secret.aks_admin_username.value
-            ssh_public_key      = data.azurerm_key_vault_secret.aks_ssh.value
+        prod = {
+            api_list  = ["dns.googleapis.com",
+                        "cloudapis.googleapis.com",
+                        "cloudbuild.googleapis.com",
+                        "cloudfunctions.googleapis.com",
+                        "container.googleapis.com",
+                        "containerregistry.googleapis.com",
+                        "iam.googleapis.com",
+                        "iap.googleapis.com",
+                        "servicenetworking.googleapis.com",
+                        "storage-component.googleapis.com"]
         }
     }
 }
