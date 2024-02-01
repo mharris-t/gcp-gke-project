@@ -64,8 +64,8 @@ locals {
  }
 
   app2 = {
-    project_id      = data.terraform_remote_state.projects.outputs.module.project-factory["app2"].project_id
-    region          = provider.google.region
+    project_id       = data.terraform_remote_state.projects.outputs.module.project-factory["app2"].project_id
+    region           = provider.google.region
     node_subnet_dev  = "10.0.32.0/29" #4 nodes
     pod_subnet_dev   = "10.0.36.0/22" #440 pods / 4 nodes
     svc_subnet_dev   = "10.0.32.128/25" #128 services / 4 nodes
@@ -75,8 +75,8 @@ locals {
   }
 
   app3 = {
-    project_id  = data.terraform_remote_state.projects.outputs.module.project-factory["app3"].project_id
-    region      = provider.google.region
+    project_id       = data.terraform_remote_state.projects.outputs.module.project-factory["app3"].project_id
+    region           = provider.google.region
     node_subnet_dev  = "10.0.64.0/29" #4 nodes
     pod_subnet_dev   = "10.0.68.0/22" #440 pods / 4 nodes
     svc_subnet_dev   = "10.0.64.128/25" #128 services / 4 nodes
