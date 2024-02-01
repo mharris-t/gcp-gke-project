@@ -1,7 +1,8 @@
+#! Create a NATrouter for your VPC
 resource "google_compute_router" "router" {
   for_each = local.nat_projects
   project  = data.terraform_remote_state.projects.outputs.module.project-factory["${each.key}"].project_id
-  name     = "my-router-${each.key}"
+  name     = "nat-router-${each.key}"
   region   = module.vpc["${each.key}"].subnets.subnet_region
   network  = google_compute_network.net.id
 
@@ -11,6 +12,7 @@ resource "google_compute_router" "router" {
   depends_on = [ module.vpc.subnet ]
 }
 
+#! Add and attach a NAT instance to your router
 resource "google_compute_router_nat" "nat" {
   for_each                           = local.nat_projects
   name                               = "my-nat-${each.key}"
@@ -26,6 +28,7 @@ resource "google_compute_router_nat" "nat" {
   depends_on = [ google_compute_router.router ]
 }
 
+#! GCP projects
 locals {
   nat_projects = {
     app1 = {}

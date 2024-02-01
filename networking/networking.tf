@@ -1,3 +1,4 @@
+#! Add VPC with primary and secondary subnets for GKE clusters
 module "vpc" {
     source  = "terraform-google-modules/network/google"
     version = "~> 9.0"
@@ -39,6 +40,7 @@ module "vpc" {
     routes = []
 }
 
+#! Define primary and secondary subnets here
 locals {
   networking_env = {
 
