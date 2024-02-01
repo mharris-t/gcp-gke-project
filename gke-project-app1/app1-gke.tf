@@ -2,8 +2,9 @@ module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
   for_each                   = local.envs 
   project_id                 = data.terraform_remote_state.projects.outputs.module.vpc["app1"].project_id
-  name                       = "gke-test-1"
+  name                       = "gke-app1-${each.key}"
   region                     = data.terraform_remote_state.projects.outputs.module.project-factory["app1"].region
+  regional                   = each.value
   zones                      = ["us-central1-a", "us-central1-b", "us-central1-f"]
   network                    = "${data.terraform_remote_state.projects.outputs.module.vpc["app1"].network}"
   subnetwork                 = "us-central1-01"
@@ -30,7 +31,7 @@ module "gke" {
       enable_gvnic              = false
       logging_variant           = "DEFAULT"
       auto_repair               = true
-      auto_upgrade              = true
+      auto_upgrade              = false
       service_account           = "project-service-account@<PROJECT ID>.iam.gserviceaccount.com"
       preemptible               = false
       initial_node_count        = 80
@@ -84,6 +85,19 @@ module "gke" {
 locals {
   envs = {
     dev = {
+      project_id                 = data.terraform_remote_state.projects.outputs.app1_project_id
+      region                     = provider.google.region
+      regional                   = false
+      zones                      = ["europe-north1-a", "europe-north1-b"]
+      network                    = "${data.terraform_remote_state.projects.outputs.app1_gke_network}"
+      subnetwork                 = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0]}" #refer to node subnet
+      ip_range_pods              = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0][0]}"
+      ip_range_services          = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0][1]}"
+      http_load_balancing        = false
+      network_policy             = false
+      horizontal_pod_autoscaling = true
+      filestore_csi_driver       = false
+
         
     }
 
