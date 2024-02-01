@@ -1,3 +1,4 @@
+#! Create new folders for GCP project hierarchy
 module "folders" {
   source  = "terraform-google-modules/folders/google"
   version = "~> 4.0"
@@ -11,13 +12,14 @@ module "folders" {
   ]
 }
 
-
+#! Create new projects and activate relevant GCP services. 
 module "project-factory" {
   source               = "terraform-google-modules/project-factory/google"
   version              = "~> 14.4"
   for_each             = local.project_env
   name                 = "gke-project-${each.key}"
   random_project_id    = false
+  folder_id            = module.folders.folders_map["${each.key}"].id
   org_id               = data.google_secret_manager_secret.org_id.secret_id
   usage_bucket_name    = "gke-project-${each.key}-usage-report-bucket"
   usage_bucket_prefix  = "gke-project/${each.key}/1/integration"
