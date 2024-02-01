@@ -28,7 +28,7 @@ module "project-factory" {
   depends_on           = [ module.folders ]
 }
 
-
+#! Define projects and GCP Services to be enabled
 locals {
     project_env = {
         app1 = {
