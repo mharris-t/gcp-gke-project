@@ -2,9 +2,9 @@
 module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
   for_each                   = local.envs 
-  project_id                 = data.terraform_remote_state.projects.outputs.module.vpc["app1"].project_id
+  project_id                 = each.value.project_id
   name                       = "gke-app1-${each.key}"
-  region                     = data.terraform_remote_state.projects.outputs.module.project-factory["app1"].region
+  region                     = each.value.region
   regional                   = each.value.regional
   zones                      = each.value.zones
   network                    = each.value.network
