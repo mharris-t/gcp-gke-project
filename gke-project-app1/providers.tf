@@ -1,5 +1,5 @@
 provider "google" {
-  project     = "my-governance-project"
+  project     = "${data.terraform_remote_state.governance.outputs.app1_project_id}"
   region      = "europe-north1"
 }
 

@@ -3,7 +3,7 @@ module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
   for_each                   = local.envs 
   project_id                 = each.value.project_id
-  name                       = "gke-app1-${each.key}"
+  name                       = "gke-app3-${each.key}"
   region                     = each.value.region
   regional                   = each.value.regional
   zones                      = each.value.zones
@@ -34,14 +34,14 @@ module "gke" {
 locals {
   envs = {
     dev = {
-      project_id                 = data.terraform_remote_state.projects.outputs.app1_project_id
+      project_id                 = data.terraform_remote_state.projects.outputs.app3_project_id
       region                     = provider.google.region
       regional                   = false
       zones                      = ["europe-north1-a"]
-      network                    = "${data.terraform_remote_state.projects.outputs.app1_gke_network}"
-      subnetwork                 = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0]}" #refer to node subnet
-      ip_range_pods              = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0][0]}"
-      ip_range_services          = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0][1]}"
+      network                    = "${data.terraform_remote_state.projects.outputs.app3_gke_network}"
+      subnetwork                 = "${data.terraform_remote_state.projects.outputs.app3_gke_subnets[0]}" #refer to node subnet
+      ip_range_pods              = "${data.terraform_remote_state.projects.outputs.app3_gke_subnets[0][0]}"
+      ip_range_services          = "${data.terraform_remote_state.projects.outputs.app3_gke_subnets[0][1]}"
       http_load_balancing        = false
       network_policy             = false
       horizontal_pod_autoscaling = true
@@ -80,7 +80,7 @@ locals {
               all = {}
 
               dev-node-pool = {
-                node-pool-metadata-custom-value = "app1-dev-node-pool"
+                node-pool-metadata-custom-value = "app3-dev-node-pool"
               }
             }
 
@@ -101,14 +101,14 @@ locals {
     }
 
 prod = {
-      project_id                 = data.terraform_remote_state.projects.outputs.app1_project_id
+      project_id                 = data.terraform_remote_state.projects.outputs.app3_project_id
       region                     = provider.google.region
       regional                   = true
       zones                      = ["europe-north1-a", "europe-north1-b"]
-      network                    = "${data.terraform_remote_state.projects.outputs.app1_gke_network}"
-      subnetwork                 = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0]}" #refer to node subnet
-      ip_range_pods              = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0][0]}"
-      ip_range_services          = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0][1]}"
+      network                    = "${data.terraform_remote_state.projects.outputs.app3_gke_network}"
+      subnetwork                 = "${data.terraform_remote_state.projects.outputs.app3_gke_subnets[0]}" #refer to node subnet
+      ip_range_pods              = "${data.terraform_remote_state.projects.outputs.app3_gke_subnets[0][0]}"
+      ip_range_services          = "${data.terraform_remote_state.projects.outputs.app3_gke_subnets[0][1]}"
       http_load_balancing        = false
       network_policy             = false
       horizontal_pod_autoscaling = true
@@ -147,7 +147,7 @@ prod = {
               all = {}
 
               prod-node-pool = {
-                node-pool-metadata-custom-value = "app1-prod-node-pool"
+                node-pool-metadata-custom-value = "app3-prod-node-pool"
               }
             }
 
