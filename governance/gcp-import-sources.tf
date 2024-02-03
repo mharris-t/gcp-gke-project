@@ -8,5 +8,5 @@ data "google_secret_manager_secret" "org_id" {
 }
 
 data "google_service_account" "gov_svc_acc" {
-  account_id = "governance" #governance@governance-234234.iam.gserviceaccount.com
+  account_id = "governance" #governance@governance-12345.iam.gserviceaccount.com
 }
