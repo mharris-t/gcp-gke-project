@@ -1,15 +1,15 @@
 resource "google_compute_instance" "app1_vms" {
-  name         = "my-instance"
-  machine_type = "n2-standard-2"
-  zone         = "us-central1-a"
-
-  tags = ["foo", "bar"]
+  for_each     = local.VMs
+  name         = "${each.key}"
+  machine_type = "${each.value.machine_type}"
+  zone         = "${each.value.zone}"
+  tags         = each.value.zone
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = each.value.label
       labels = {
-        my_label = "value"
+        my_label = "${each.key}"
       }
     }
   }
@@ -47,7 +47,7 @@ locals {
         zone         = "europe-north1-a"
         tags         = ["app1", "bastion"]
         image        = "ubuntu-os-cloud/ubuntu-2204-lts"
-
+        network      = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0]}"
     }
 
   }
