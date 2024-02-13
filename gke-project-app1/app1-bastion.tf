@@ -35,7 +35,7 @@ resource "google_compute_instance" "app1_vms" {
 
   service_account {
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    email  = google_service_account.default.email
+    email  = data.terraform_remote_state.governance.outputs.app1_bast_svc_acc.email
     scopes = ["cloud-platform"]
   }
 }
