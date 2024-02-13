@@ -20,7 +20,8 @@ resource "google_compute_instance" "app1_vms" {
   }
 
   network_interface {
-    network = "default"
+    # network = "default"
+    subnetwork = each.value.subnetwork
 
     access_config {
       // Ephemeral public IP
@@ -47,7 +48,7 @@ locals {
         zone         = "europe-north1-a"
         tags         = ["app1", "bastion"]
         image        = "ubuntu-os-cloud/ubuntu-2204-lts"
-        network      = "${data.terraform_remote_state.projects.outputs.app1_gke_network}"
+        subnetwork      = "${data.terraform_remote_state.networking.outputs.app1_bast_subnet_self_links}"
     }
 
   }

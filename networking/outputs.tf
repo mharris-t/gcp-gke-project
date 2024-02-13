@@ -22,14 +22,15 @@ output "app3_gke_subnets" {
   value = module.vpc["app3"].subnet_names
 }
 
-output "app1_bast_subnet" {
+#! bastion subnet self links
+output "app1_bast_subnet_self_links" {
   value = module.vpc["app1"].subnets_self_links
 }
 
-output "app1_bast_subnet" {
+output "app2_bast_subnet_self_links" {
   value = module.vpc["app2"].subnets_self_links
 }
 
-output "app1_bast_subnet" {
+output "app3_bast_subnet_self_links" {
   value = module.vpc["app3"].subnets_self_links
 }
