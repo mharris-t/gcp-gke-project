@@ -13,3 +13,15 @@ output "app3_project_id" {
 output "gov_svc_acc" {
   value = data.google_service_account.gov_svc_acc
 }
+
+output "app1_bast_svc_acc" {
+  value = google_service_account.bastion_service_account["app1-bastion"]
+}
+
+output "app2_bast_svc_acc" {
+  value = google_service_account.bastion_service_account["app1-bastion"]
+}
+
+output "app3_bast_svc_acc" {
+  value = google_service_account.bastion_service_account["app1-bastion"]
+}
