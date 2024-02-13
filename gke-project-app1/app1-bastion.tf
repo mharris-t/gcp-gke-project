@@ -41,6 +41,7 @@ resource "google_compute_instance" "app1_vms" {
 }
 
 locals {
+    VMs= {
     app1-bastion = {
         machine_type = "e2-micro"
         zone         = "europe-north1-a"
@@ -48,4 +49,6 @@ locals {
         image        = "ubuntu-os-cloud/ubuntu-2204-lts"
 
     }
+
+  }
 }
