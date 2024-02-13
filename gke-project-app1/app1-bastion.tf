@@ -28,7 +28,7 @@ resource "google_compute_instance" "app1_vms" {
   }
 
   metadata = {
-    foo = "bar"
+    VM = "${each.key}"
   }
 
   metadata_startup_script = "echo hi > /test.txt"
@@ -47,7 +47,7 @@ locals {
         zone         = "europe-north1-a"
         tags         = ["app1", "bastion"]
         image        = "ubuntu-os-cloud/ubuntu-2204-lts"
-        network      = "${data.terraform_remote_state.projects.outputs.app1_gke_subnets[0]}"
+        network      = "${data.terraform_remote_state.projects.outputs.app1_gke_network}"
     }
 
   }
