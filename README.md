@@ -101,4 +101,9 @@ Bastion Subnet        = "10.0.64.8/29" #4 nodes
 
 The VPCs are deployed as follows: 
 
-![Deployed VPCs for the Organisation ](https://github.com/mharris-t/gcp-gke-project/blob/main/diagrams/figures/gke_networking.png)
+![Deployed VPCs for the Organisation](https://github.com/mharris-t/gcp-gke-project/blob/main/diagrams/figures/gke_networking.png)
+
+In every VPC in this scope of this project, a bastion VM (e2-micro) is deployed to enable access to the private cluster endpoints within each cluster. Users can employ GCP's Identity Aware Proxy (IAP) to access the VM, ensuring secure access. Also, the bastion VM can access internet throught the NAT instance. The manner a user can access the cluster endpoints is as follows:
+
+![Bastion VM to access private GKE clusters](https://github.com/mharris-t/gcp-gke-project/blob/main/diagrams/figures/gke_bastion_networking.png)
+
