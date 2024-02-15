@@ -4,6 +4,12 @@ This is a code repository containing Terraform (TF) code for an organisation dep
 
 This Git repository should not be considered a monorepository. Each main folder is considered a Git repository of its own, where resources defined in the TF repositories can be deployed with CI/CD pipeline tools such as GCP Cloudbuild and GitHub Actions.
 
+The organisation has divided their cloud-native application development into three, namely:
+
+- App1
+- App2
+- App3
+
 ## Folder Structure
 
 The Git folder structure is as follows:
@@ -40,3 +46,7 @@ The Git folder structure is as follows:
 
 6 directories, 22 files
 ```
+
+## GCP Project Hierarchy
+
+The project hierarchy for this organisation is as follows:
