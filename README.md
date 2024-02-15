@@ -1,7 +1,7 @@
 # gcp-gke-project
 This is a TF code for deploying a GCP project with GKE clusters and some service controls. 
 
-'''bash
+```bash
 .
 ├── README.md
 ├── gke-project-app1
@@ -32,4 +32,4 @@ This is a TF code for deploying a GCP project with GKE clusters and some service
     └── providers.tf
 
 6 directories, 22 files
-'''
+```
