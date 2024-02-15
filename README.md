@@ -57,4 +57,41 @@ The hierarchy depicted above outlines three primary project folders housing vari
 
 ## Cluster Networking
 
-The VPCs hosting the GKE clusters are deployed in App1, App2 and App3 GCP projects. GKE clusters are private clusters and hence, subnets with private IP addresses are deployed in each VPCs. Each VPC has a NAT instance and a NAT router deployed, allowing clusters and bastion host access to the internet for pulling images, access to update repositories, etc. 
+The VPCs hosting the GKE clusters are deployed in App1, App2 and App3 GCP projects. GKE clusters are private clusters and hence, subnets with private IP addresses are deployed in each VPCs. Each VPC has a NAT instance and a NAT router deployed, allowing clusters and bastion host access to the internet for pulling images, access to online update repositories, etc. 
+
+Each App project consists of Dev and Prod clusters. The design for networking is done in a way that VPC in each project can be VPC-peered in the future if required. The subnetting is as follows:
+
+### App1
+Dev Node Subnet       = "10.0.0.0/29" #4 nodes
+Dev Pod Subnet        = "10.0.4.0/22" #440 pods / 4 nodes
+Dev Services Subnet   = "10.0.0.128/25" #128 services / 4 nodes
+
+Prod Node Subnet      = "10.0.0.16/28" #12 nodes
+Prod Pod Subnet       = "10.0.16.0/20" #1760 pods / 16 nodes
+Prod Services Subnet  = "10.0.2.0/23"  #512 services / 16 nodes
+
+Bastion Subnet        = "10.0.0.8/29" #4 nodes
+
+### App2
+Dev Node Subnet       = "10.0.32.0/29" #4 nodes
+Dev Pod Subnet        = "10.0.36.0/22" #440 pods / 4 nodes
+Dev Services Subnet   = "10.0.32.128/25" #128 services / 4 nodes
+Prod Node Subnet      = "10.0.32.16/28" #12 nodes
+Prod Pod Subnet       = "10.0.48.0/20" #1760 pods / 16 nodes
+Prod Services Subnet  = "10.0.34.0/23"  #512 services / 16 nodes
+
+Bastion Subnet        = "10.0.32.8/29" #4 nodes
+
+### App3
+Dev Node Subnet       = "10.0.64.0/29" #4 nodes
+Dev Pod Subnet        = "10.0.68.0/22" #440 pods / 4 nodes
+Dev Services Subnet   = "10.0.64.128/25" #128 services / 4 nodes
+Prod Node Subnet      = "10.0.64.16/28" #12 nodes
+Prod Pod Subnet       = "10.0.80.0/20" #1760 pods / 16 nodes
+Prod Services Subnet  = "10.0.66.0/23" #512 services / 16 nodes
+
+Bastion Subnet        = "10.0.64.8/29" #4 nodes
+
+The VPCs are deployed as follows: 
+
+![Deployed VPCs for the Organisation ](https://github.com/mharris-t/gcp-gke-project/blob/main/diagrams/figures/gke_networking.png)
