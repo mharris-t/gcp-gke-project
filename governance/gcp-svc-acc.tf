@@ -4,6 +4,7 @@ resource "google_service_account" "bastion_service_account" {
   display_name = "Service Account for ${each.key}"
 }
 
+#! Service Account Definitions
 locals {
   svc_accts = {
     app1-bastion = {
