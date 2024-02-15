@@ -7,7 +7,7 @@ resource "google_compute_router" "router" {
   network  = google_compute_network.net.id
 
   bgp {
-    asn = (each.index * 10) + 64514 #dev 6514, test 64524, prod 6534
+    asn = (each.index * 10) + 64514 #app1 6514, app2 64524, app3 6534
   }
   depends_on = [ module.vpc.subnet ]
 }
