@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-02-15T13:05:04.454Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0" etag="OpNm7DiVJuyQgGNwCf1J" version="23.1.4" type="device">
+<mxfile host="app.diagrams.net" modified="2024-02-15T20:25:41.560Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0" etag="Ik8mrlEO5G9tMIdflbcc" version="23.1.4" type="github">
   <diagram name="Page-1" id="x_WqStI0vhyQkdDRyQ5F">
     <mxGraphModel dx="954" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -90,7 +90,7 @@
         <mxCell id="3m9-cMXYAfo5JfY_h9w6-64" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="290" y="450" width="140" height="44" as="geometry" />
         </mxCell>
-        <mxCell id="3m9-cMXYAfo5JfY_h9w6-65" value="gke-project-app1" style="dashed=0;strokeColor=#dddddd;shadow=0;strokeWidth=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacingLeft=5;fontSize=12;whiteSpace=wrap;html=1;" parent="3m9-cMXYAfo5JfY_h9w6-64" vertex="1">
+        <mxCell id="3m9-cMXYAfo5JfY_h9w6-65" value="gke-project-app2" style="dashed=0;strokeColor=#dddddd;shadow=0;strokeWidth=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacingLeft=5;fontSize=12;whiteSpace=wrap;html=1;" parent="3m9-cMXYAfo5JfY_h9w6-64" vertex="1">
           <mxGeometry width="140" height="44" as="geometry" />
         </mxCell>
         <mxCell id="3m9-cMXYAfo5JfY_h9w6-66" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-solid-vol-1/24/bxs-briefcase-128.png;opacity=60;" parent="3m9-cMXYAfo5JfY_h9w6-64" vertex="1">
