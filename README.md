@@ -1,5 +1,8 @@
 # gcp-gke-project
-This is a TF code for deploying a GCP project with GKE clusters and some service controls. 
+
+This is a code repository containing Terraform (TF) code for an organisation deploying cloud-native applications in Kubernetes clusters. The main requirement for this organization is to have Dev & Prod clusters for blue/green deployments, which are intended for testing and releasing the applications developed by the development team within the organisation. Furthermore, it is required that the organisation has control over Kubernetes release upgrades in GCP, so that the applications deployed in the clusters do not break after automatic upgrade of the Kubernetes control plane. 
+
+## Folder Structure
 
 ```bash
 .
