@@ -62,6 +62,7 @@ The VPCs hosting the GKE clusters are deployed in App1, App2 and App3 GCP projec
 Each App project consists of Dev and Prod clusters. The design for networking is done in a way that VPC in each project can be VPC-peered in the future if required. The subnetting is as follows:
 
 ### App1
+```bash
 Dev Node Subnet       = "10.0.0.0/29" #4 nodes
 Dev Pod Subnet        = "10.0.4.0/22" #440 pods / 4 nodes
 Dev Services Subnet   = "10.0.0.128/25" #128 services / 4 nodes
@@ -71,8 +72,10 @@ Prod Pod Subnet       = "10.0.16.0/20" #1760 pods / 16 nodes
 Prod Services Subnet  = "10.0.2.0/23"  #512 services / 16 nodes
 
 Bastion Subnet        = "10.0.0.8/29" #4 nodes
+```
 
 ### App2
+```bash
 Dev Node Subnet       = "10.0.32.0/29" #4 nodes
 Dev Pod Subnet        = "10.0.36.0/22" #440 pods / 4 nodes
 Dev Services Subnet   = "10.0.32.128/25" #128 services / 4 nodes
@@ -81,8 +84,11 @@ Prod Pod Subnet       = "10.0.48.0/20" #1760 pods / 16 nodes
 Prod Services Subnet  = "10.0.34.0/23"  #512 services / 16 nodes
 
 Bastion Subnet        = "10.0.32.8/29" #4 nodes
+```
 
 ### App3
+
+```bash
 Dev Node Subnet       = "10.0.64.0/29" #4 nodes
 Dev Pod Subnet        = "10.0.68.0/22" #440 pods / 4 nodes
 Dev Services Subnet   = "10.0.64.128/25" #128 services / 4 nodes
@@ -91,6 +97,7 @@ Prod Pod Subnet       = "10.0.80.0/20" #1760 pods / 16 nodes
 Prod Services Subnet  = "10.0.66.0/23" #512 services / 16 nodes
 
 Bastion Subnet        = "10.0.64.8/29" #4 nodes
+```
 
 The VPCs are deployed as follows: 
 
