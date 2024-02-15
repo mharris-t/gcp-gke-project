@@ -16,6 +16,7 @@ resource "google_compute_router" "router" {
 resource "google_compute_router_nat" "nat" {
   for_each                           = local.nat_projects
   name                               = "my-nat-${each.key}"
+  project                            = data.terraform_remote_state.projects.outputs.module.project-factory["${each.key}"].project_id
   router                             = google_compute_router.router["${each.key}"].name
   region                             = google_compute_router.router["${each.key}"].region
   nat_ip_allocate_option             = "AUTO_ONLY"
