@@ -1,11 +1,10 @@
 #! Create new folders for GCP project hierarchy
 module "folders" {
-  source  = "terraform-google-modules/folders/google"
-  version = "~> 4.0"
+  source   = "terraform-google-modules/folders/google"
+  version  = "~> 4.0"
+  parent   = "${data.google_secret_manager_secret.org_id.secret_id}"
 
-  parent  = "${data.google_secret_manager_secret.org_id.secret_id}"
-
-  names   = [flatten([for env_key, value in local.project_env:[env_key]])]
+  names    = [flatten([for env_key, value in local.project_env:[env_key]])]
 
   all_folder_admins = [
     "serviceAccount:${data.google_service_account.gov_svc_acc.email}",
