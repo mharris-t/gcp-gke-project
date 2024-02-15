@@ -2,7 +2,11 @@
 
 This is a code repository containing Terraform (TF) code for an organisation deploying cloud-native applications in Kubernetes clusters. The main requirement for this organization is to have Dev & Prod clusters for blue/green deployments, which are intended for testing and releasing the applications developed by the development team within the organisation. Furthermore, it is required that the organisation has control over Kubernetes release upgrades in GCP, so that the applications deployed in the clusters do not break after automatic upgrade of the Kubernetes control plane. 
 
+This Git repository should not be considered a monorepository. Each main folder is considered a Git repository of its own, where resources defined in the TF repositories can be deployed with CI/CD pipeline tools such as GCP Cloudbuild and GitHub Actions.
+
 ## Folder Structure
+
+The Git folder structure is as follows:
 
 ```bash
 .
