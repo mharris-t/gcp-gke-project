@@ -50,3 +50,5 @@ The Git folder structure is as follows:
 ## GCP Project Hierarchy
 
 The project hierarchy for this organisation is as follows:
+
+![GCP Project Hierarchy for the Organisation](https://github.com/mharris-t/gcp-gke-project/blob/main/diagrams/figures/GCP%20Hierarchy.png)
