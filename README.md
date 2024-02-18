@@ -79,6 +79,7 @@ Bastion Subnet        = "10.0.0.8/29" #4 nodes
 Dev Node Subnet       = "10.0.32.0/29" #4 nodes
 Dev Pod Subnet        = "10.0.36.0/22" #440 pods / 4 nodes
 Dev Services Subnet   = "10.0.32.128/25" #128 services / 4 nodes
+
 Prod Node Subnet      = "10.0.32.16/28" #12 nodes
 Prod Pod Subnet       = "10.0.48.0/20" #1760 pods / 16 nodes
 Prod Services Subnet  = "10.0.34.0/23"  #512 services / 16 nodes
@@ -92,6 +93,7 @@ Bastion Subnet        = "10.0.32.8/29" #4 nodes
 Dev Node Subnet       = "10.0.64.0/29" #4 nodes
 Dev Pod Subnet        = "10.0.68.0/22" #440 pods / 4 nodes
 Dev Services Subnet   = "10.0.64.128/25" #128 services / 4 nodes
+
 Prod Node Subnet      = "10.0.64.16/28" #12 nodes
 Prod Pod Subnet       = "10.0.80.0/20" #1760 pods / 16 nodes
 Prod Services Subnet  = "10.0.66.0/23" #512 services / 16 nodes
